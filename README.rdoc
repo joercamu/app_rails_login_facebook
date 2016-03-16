@@ -1,0 +1,13 @@
+PASO A PASO PARA INICIAR SESION CON FACEBOOK
+1. instalar devise
+	1.1 gem 'devise'
+	1.2 $ rails g devise:install
+	1.3 $ rails g devise User
+	1.4 añadir :uid , :provider a la migracion de 'Users'
+2. instalar omniauth-facebook
+	2.1 gem 'omniauth-facebook'
+	2.2 en config/initializers/devise.rb
+	2.3 'config.omniauth :facebook, 'APP_ID', 'SECRET_KEY''
+3. en el modelo User.rb add ':omniauthable, :omniauth_providers => [:facebook]'
+4. in config/routes.rb 'devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }'
+5. 
